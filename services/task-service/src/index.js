@@ -32,5 +32,5 @@ app.get('/', (req, res) => {
 // Start server
 const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {
-  console.log(`Task service running on port ${PORT}`);
+  console.log(`Servicio de tareas que se ejecuta en el puerto ${PORT}`);
 });

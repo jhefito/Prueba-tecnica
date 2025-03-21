@@ -31,7 +31,7 @@ exports.getTasks = async (req, res) => {
   }
 };
 
-// Get a single task
+// Obtener una única tarea
 exports.getTask = async (req, res) => {
   try {
     const task = await Task.findOne({ _id: req.params.id, userId: req.user.userId });
@@ -44,7 +44,7 @@ exports.getTask = async (req, res) => {
   }
 };
 
-// Update a task
+// Actualizar tarea
 exports.updateTask = async (req, res) => {
   try {
     const { title, description, status, dueDate } = req.body;
@@ -55,15 +55,15 @@ exports.updateTask = async (req, res) => {
     );
 
     if (!task) {
-      return res.status(404).json({ message: 'Task not found' });
+      return res.status(404).json({ message: 'Tarea no encontrada' });
     }
 
     res.json({
-      message: 'Task updated successfully',
+      message: 'Tarea actualizada correctamente',
       task
     });
   } catch (error) {
-    res.status(500).json({ message: 'Error updating task', error: error.message });
+    res.status(500).json({ message: 'Error al actualizar la tarea', error: error.message });
   }
 };
 
